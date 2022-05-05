@@ -1,0 +1,31 @@
+Purposes:
+  - The script is used to generate EK640 components:
+    + HLS IP core for TOF sensor data processing
+	+ vivado hardware platform
+	+ petalinux image
+	+ camera server applications
+	+ qt client application
+  
+  - The script is designed to run with single command.
+
+System requirement:
+  - Ubuntu 18.04
+
+Dependencies:
+  - Vivado/Vitis/VitisHLS/Petalinux 2020.2
+  - QT 5.12
+  - faketime
+
+Preparations:
+  - allow nopassword sudo privilege:
+     # sudo visudo
+	 <username> ALL=(ALL) NOPASSWD: ALL
+
+  - insert sd card with formatted partitions
+  - mount sd card to /media/$USER/boot and /media/$USER/rootfs (lowcased boot/rootfs)
+
+Run:
+  - execute:
+    # make all
+
+	to generate everything. 
