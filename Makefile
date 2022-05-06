@@ -4,10 +4,12 @@ IP_REPO=$(PROJECT_DIR)/vitis_hls/ip_repo
 VIVADO_PROJECT_DIR=$(PROJECT_DIR)/vivado/cabin2_v2
 XSA_DIR=$(PROJECT_DIR)/vivado/xsa
 PLNX_PROJECT_DIR=$(PROJECT_DIR)/plnx/cabin2_petalinux
+QT_PROJECT_DIR=$(PROJECT_DIR)/qt/SonyTOF_client
 
 HLS_GIT=http://gitlab.dinsight.ai/lnlinh93/getphasemap2.git
 VIVADO_GIT=http://gitlab.dinsight.ai/lnlinh93/cabin2_v2.git
 PLNX_GIT=http://gitlab.dinsight.ai/lnlinh93/cabin2_petalinux.git
+QT_CLIENT_GIT=http://gitlab.dinsight.ai/lnlinh93/testimageviewer.git
 
 all: ip xsa plnx qt_client
 	@echo "All targets built"
@@ -50,8 +52,11 @@ ip:
 	unzip $(IP_REPO)/getPhaseMap2.zip -d $(IP_REPO)/getPhaseMap2
 
 qt_client:
-	@echo "Building QT app"
-
+	@echo "#########################################"
+	@echo "#         Building QT client app        #"
+	@echo "#########################################"
+	git clone $(QT_CLIENT_GIT) $(QT_PROJECT_DIR)
+	$(MAKE) -C $(QT_PROJECT_DIR) all
 
 make_dirs:
 	-mkdir vitis_hls

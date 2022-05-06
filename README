@@ -14,6 +14,7 @@ System requirement:
 Dependencies:
   - Vivado/Vitis/VitisHLS/Petalinux 2020.2
   - QT 5.12
+  - OpenCV
   - faketime
 
 Preparations:
